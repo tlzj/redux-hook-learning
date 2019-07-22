@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/redux/4.0.4/redux.min.js"></script>
+</head>
+<body>
+  <script>
+    function inc() {
+      return { type: 'INCREMENT' }
+    }
+    function dec(){
+      return { type: 'DECREMENT' }
+    }
+    function reducer(state, action){
+      state = state || { counter: 0 };
+      switch(action.type){
+        case 'INCREMENT' : 
+          return { counter: state.counter + 1 };
+        case 'DECREMENT' : 
+          return { counter: state.counter - 1 };
+        default : 
+          return state;
+      }
+    }
+    var store = Redux.createStore(reducer);
+    console.log(store.getState());
+    store.dispatch(inc());
+    console.log(store.getState());
+    store.dispatch(dec());
+    console.log(store.getState())
+  </script>
+</body>
+</html>
