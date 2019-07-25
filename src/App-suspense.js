@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactSuspense from './page-suspense/1.page/index.js';
+import ReactSuspense from './page-suspense/4.page/index.js';
 function App(){
   return (
     <div>
