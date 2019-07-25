@@ -45,11 +45,11 @@
 // }
 // export default SuspenseDemo;
 
-// 懒加载
+// 懒加载 webpackChunkName 代码分割后打包生成的文件名
 import React, { Suspense, lazy, useState } from 'react';
-const ModuleA = lazy(() => import('./component/ModuleA.js'));
-const ModuleB = lazy(() => import('./component/ModuleB.js'));
-const ModuleC = lazy(() => import('./component/ModuleC.js'));
+const ModuleA = lazy(() => import(/* webpackChunkName: 'lazyComponent'*/'./component/ModuleA.js'));
+const ModuleB = lazy(() => import(/* webpackChunkName: 'tlzj' */'./component/ModuleB.js'));
+const ModuleC = lazy(() => import(/* webpackChunkName: 'tlzj-test' */'./component/ModuleC.js'));
 function SuspenseDemo (){
   const [isShow, setIsShow] = useState(false)
   const changeShow = function(){
