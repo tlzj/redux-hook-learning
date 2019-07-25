@@ -1,0 +1,1 @@
+# 不使用React.lazy做代码切割，另外还可以使用react-loadable包做代码切割
