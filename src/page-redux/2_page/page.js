@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { createStore} from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from "react-router-dom";
-import Index from './page-redux/2_page/index.js';
-import reducer from './page-redux/2_page/reducers.js';
+import Index from './index.js';
+import reducer from './reducers.js';
 
 // 创建一个初始化的state
 let initState = {

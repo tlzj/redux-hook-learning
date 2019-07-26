@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 import { Provider } from 'react-redux';
-import Index from './page-redux/5_page/index.js';
-import About from './page-redux/5_page/about.js';
-import reducer from './page-redux/5_page/redux/reducer.js';
+import Index from './index.js';
+import About from './about.js';
+import reducer from './redux/reducer.js';
 const initialState = {
   indexState: {
     count: 100

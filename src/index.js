@@ -1,10 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import App from './App';
-// import App from './App1.js';
-// import App from './App2.js';
-// import App from './App3.js';
-// import App from './App4.js';
 import App from './App-suspense.js';
 import * as serviceWorker from './serviceWorker';
 
