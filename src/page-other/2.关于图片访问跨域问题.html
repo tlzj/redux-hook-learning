@@ -28,15 +28,18 @@
       // btnCanvas点击
       document.getElementById('btnCanvas').onclick = function(){
         var img = document.createElement("img");
-        img.src = 'http://192.168.100.93:8088/oss/v1/753374984/objects/5d7a08132ce7970810100b13?client_token=753374984_0_1599814546_8e25f2f19f96d49c8fd67c50d97cf171';
+        img.setAttribute("crossOrigin",'Anonymous'); // 设置这个的时候也要保证后端也设置了
+        // 下面的地址后端已经配置了允许跨域访问
+        img.src = 'http://192.168.101.14:8099/image/v1/753374984/objects/5d7a08132ce7970810100b13/1568278547050001001.jpg?client_token=753374984_0_1599814546_8e25f2f19f96d49c8fd67c50d97cf171&crop=x_561,y_392,w_169,h_201';
         document.body.appendChild(img);
         img.onload = function(){
           let canvas = document.createElement("canvas");
           canvas.width = img.width;
           canvas.height = img.height;
           canvas.getContext("2d").drawImage(img, 0, 0);
-          // const base64Url = canvas.toDataURL("image/jpeg", 0.8);
-          // console.log(base64Url, '---')
+          const base64Url = canvas.toDataURL("image/jpeg", 0.8); // 跨域图片造成画布被污染（会报错)
+          // ，虽然可以使用图像（比如append到页面上）但是绘制到画布上会污染画布，一旦一个画布被污染,就无法提取画布的数据，比如无法使用使用画布toBlob(),toDataURL(),或getImageData()方法;当使用这些方法的时候 会抛出一个安全错误
+          console.log(base64Url, '---')
           document.body.appendChild(canvas);
         }
       }
@@ -49,6 +52,7 @@
 
 <!-- /**
 * https://www.jianshu.com/p/8fa0fb53c183
+https://www.cnblogs.com/sunala/p/7085525.html
 * 通过 <img> 加载的图片，浏览器默认情况下会将其缓存起来。
  当我们从 JS 的代码中创建的 <img> 再去访问同一个图片时，浏览器就不会再发起新的请求，而是直接访问缓存的图片。
  但是由于 JS 中的 <img> 设置了 crossorigin，也就意味着它将要以 CORS 的方式请求，但缓存中的图片显然不是的，所以浏览器直接就拒绝了。连网络请求都没有发起。
