@@ -20,6 +20,7 @@ class AmapReact extends Component {
       <div>
         <img src="http://192.168.101.14:8099/image/v1/753374984/objects/5d7a08132ce7970810100b13/1568278547050001001.jpg?client_token=753374984_0_1599814546_8e25f2f19f96d49c8fd67c50d97cf171&crop=x_561,y_392,w_169,h_201" alt=""/>
         <img style={{ width: 100, height: 100}} src={ImgSrc} alt=""/>
+        <img style={{ width: 100, height: 100}} src='./favicon.ico' alt=""/>
         {/* <div style={{ height: 300 }}>
           <Map amapkey='a879095e67d7da850cee4a0679b6b857'>
             <ZoomCtrl />
