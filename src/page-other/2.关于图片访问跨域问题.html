@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    img {
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <img src="http://192.168.100.93:8088/oss/v1/753374984/objects/5d7a08132ce7970810100b13?client_token=753374984_0_1599814546_8e25f2f19f96d49c8fd67c50d97cf171" alt="">
+  <a href="http://192.168.100.93:8088/oss/v1/753374984/objects/5d7a08132ce7970810100b13?client_token=753374984_0_1599814546_8e25f2f19f96d49c8fd67c50d97cf171">下载图片</a>
+  <button id="btn">请求跨域图片</button>
+  <button id="btnCanvas">canvas请求图片</button>
+  <script>
+    window.onload = function(){
+      // btn点击
+      document.getElementById('btn').onclick = function(){
+        var img = document.createElement("img");
+        img.crossOrigin = 'anonymous';
+        img.src = 'http://192.168.100.93:8088/oss/v1/753374984/objects/5d7a08132ce7970810100b13?client_token=753374984_0_1599814546_8e25f2f19f96d49c8fd67c50d97cf171';
+        document.body.appendChild(img);
+      }
+      // btnCanvas点击
+      document.getElementById('btnCanvas').onclick = function(){
+        var img = document.createElement("img");
+        img.src = 'http://192.168.100.93:8088/oss/v1/753374984/objects/5d7a08132ce7970810100b13?client_token=753374984_0_1599814546_8e25f2f19f96d49c8fd67c50d97cf171';
+        document.body.appendChild(img);
+        img.onload = function(){
+          let canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          canvas.getContext("2d").drawImage(img, 0, 0);
+          // const base64Url = canvas.toDataURL("image/jpeg", 0.8);
+          // console.log(base64Url, '---')
+          document.body.appendChild(canvas);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+<!-- /**
+* https://www.jianshu.com/p/8fa0fb53c183
+* 通过 <img> 加载的图片，浏览器默认情况下会将其缓存起来。
+ 当我们从 JS 的代码中创建的 <img> 再去访问同一个图片时，浏览器就不会再发起新的请求，而是直接访问缓存的图片。
+ 但是由于 JS 中的 <img> 设置了 crossorigin，也就意味着它将要以 CORS 的方式请求，但缓存中的图片显然不是的，所以浏览器直接就拒绝了。连网络请求都没有发起。
+ 在 Chrome 的调试器中，在 network 面板中，我们勾选了 disable cache 选项，验证了问题确实如第 2 点所述，
+ 浏览器这时发起了请求并且 JS 的 <img> 也能正常请求到图片。
+* 
+* / -->
