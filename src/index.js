@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import App from './App-hooks-tlzj.js';
-import App from './amap-react/index.js';
+// import App from './amap-react/index.js';
+import App from './page-hooks-tlzj/2.useReducer.js';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
