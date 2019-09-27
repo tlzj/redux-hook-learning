@@ -605,6 +605,7 @@
 // function Test(props){
 //   const [count, setCount] = useState(0);
 //   const double = useMemo(() => {
+//     console.log('----useMemo执行')
 //     return count * 2;
 //   }, [count === 3]); // 在count为3和count为4时会进行渲染，false --> true --> false
 //   const test = () => {
@@ -656,28 +657,28 @@
 // export default Test;
 
 // useCallback 使用案例
-import React, { useState, useEffect, useCallback } from 'react';
-import { Button } from 'antd';
-function Test(){
-  const [count, setCount] = useState(0);
+// import React, { useState, useEffect, useCallback } from 'react';
+// import { Button } from 'antd';
+// function Test(){
+//   const [count, setCount] = useState(0);
   
-  const [data, setData] = useState(0)
-  const filter = useCallback(() => {
-    console.log('------------render')
-  }, [data])
-  const clickfun = useCallback(() => {
-    console.log(count, '====')
-    setCount(count + 1);
-    filter()
-  }, [])
-  return (
-    <div>
-      <div>{count}</div>
-      <Button onClick={clickfun}>点击改变count</Button>
-    </div>
-  )
-} 
-export default Test;
+//   const [data, setData] = useState(0)
+//   const filter = useCallback(() => {
+//     console.log('------------render')
+//   }, [data])
+//   const clickfun = useCallback(() => {
+//     console.log(count, '====')
+//     setCount(count + 1);
+//     filter()
+//   }, [])
+//   return (
+//     <div>
+//       <div>{count}</div>
+//       <Button onClick={clickfun}>点击改变count</Button>
+//     </div>
+//   )
+// } 
+// export default Test;
 
 // useRef 使用案例
 // import React, { useState, useEffect, useRef } from 'react';

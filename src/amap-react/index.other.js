@@ -71,6 +71,7 @@ import React, { Component } from 'react';
 // import PolyEditorComponent from './components/polyEditor.js';
 // import CircleComponent from './components/circle.js';
 import CircleAndMark from './components/circleAndMark.js';
+import InfoWindowComponent from './components/infoWindow.js';
 import { Map, Markers } from 'react-amap';
 const randomMarker = len => {
   return Array(len).fill(true).map((e,idx) => {
@@ -131,6 +132,7 @@ class MarksComponent extends Component {
         <div>---------------</div>
         {/* <PolyEditorComponent /> */}
         <CircleAndMark />
+        <InfoWindowComponent />
       </div>
     )
   }
