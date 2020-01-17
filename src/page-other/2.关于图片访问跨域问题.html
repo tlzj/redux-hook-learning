@@ -13,7 +13,7 @@
 </head>
 <body>
   <img src="http://192.168.100.93:8088/oss/v1/753374984/objects/5d7a08132ce7970810100b13?client_token=753374984_0_1599814546_8e25f2f19f96d49c8fd67c50d97cf171" alt="">
-  <a href="http://192.168.100.93:8088/oss/v1/753374984/objects/5d7a08132ce7970810100b13?client_token=753374984_0_1599814546_8e25f2f19f96d49c8fd67c50d97cf171">下载图片</a>
+  <a download='下载' href="http://192.168.100.93:8088/oss/v1/753374984/objects/5d7a08132ce7970810100b13?client_token=753374984_0_1599814546_8e25f2f19f96d49c8fd67c50d97cf171">下载图片</a>
   <button id="btn">请求跨域图片</button>
   <button id="btnCanvas">canvas请求图片</button>
   <script>
@@ -30,7 +30,8 @@
         var img = document.createElement("img");
         img.setAttribute("crossOrigin",'Anonymous'); // 设置这个的时候也要保证后端也设置了
         // 下面的地址后端已经配置了允许跨域访问
-        img.src = 'http://192.168.101.14:8099/image/v1/753374984/objects/5d7a08132ce7970810100b13/1568278547050001001.jpg?client_token=753374984_0_1599814546_8e25f2f19f96d49c8fd67c50d97cf171&crop=x_561,y_392,w_169,h_201';
+        // img.src = 'http://192.168.101.14:8099/image/v1/753374984/objects/5d7a08132ce7970810100b13/1568278547050001001.jpg?client_token=753374984_0_1599814546_8e25f2f19f96d49c8fd67c50d97cf171&crop=x_561,y_392,w_169,h_201';
+        img.src = 'http://192.168.100.93:8088/oss/v1/753374984/objects/5d7a08132ce7970810100b13?client_token=753374984_0_1599814546_8e25f2f19f96d49c8fd67c50d97cf171'; // 未设置跨域的图片
         document.body.appendChild(img);
         img.onload = function(){
           let canvas = document.createElement("canvas");
